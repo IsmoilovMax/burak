@@ -1,14 +1,23 @@
-// H2-TASK: 
+/* project Standarts:
+    -Logging standarts
+    -Naming standards
+        function, method, variable = > CAMEL goHome
+        class => PASCAL                     MemberService
+        folder => KEBAB                     
+        css => SNAKE                         button
+    -Error handling   
 
-// Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
-// MASALAN: getDigits("m14i1t") return qiladi "141"
+// // H2-TASK: 
 
-function extractDigits(s: string): string {
-    return s.split('').reduce((result, char) => {
-        return char >= '0' && char <= '9' ? result + char : result;
-    }, '');
-}
+// // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+// // MASALAN: getDigits("m14i1t") return qiladi "141"
 
-// Misol
-const extractedDigits = extractDigits("Senior95MIT14Group");
-console.log(extractedDigits);  // Bu yerda "141" ni qaytarishi kerak
+// function extractDigits(s: string): string {
+//     return s.split('').reduce((result, char) => {
+//         return char >= '0' && char <= '9' ? result + char : result;
+//     }, '');
+// }
+
+// // Misol
+// const extractedDigits = extractDigits("Senior95MIT14Group");
+// console.log(extractedDigits);  // Bu yerda "141" ni qaytarishi kerak

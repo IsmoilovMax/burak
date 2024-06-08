@@ -2,6 +2,8 @@ import express from "express";
 import path from "path"
 import router from "./router";
 import routerAdmin from "./routerAdmin";
+import morgan from "morgan";
+import { MORGAN_FORMAT } from "./libs/types/config";
 /* <1-ENTRANCE> */
 // Инициализация приложения Express
 
@@ -15,6 +17,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Разбор входящих JSON-запросов
 app.use(express.json());
+app.use(morgan(MORGAN_FORMAT));
 
 /* <2-SESSIONS> */
 

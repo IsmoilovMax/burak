@@ -1,13 +1,14 @@
-// H-TASK: 
+// H2-TASK: 
 
-// shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin
-// MASALAN: getPositive([1, -4, 2]) return qiladi "12"
+// Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+// MASALAN: getDigits("m14i1t") return qiladi "141"
 
-function posiString(arr: number[]): string {
-    return arr.reduce((str, num) => num > 0 ? str + num : str, '');
+function extractDigits(s: string): string {
+    return s.split('').reduce((result, char) => {
+        return char >= '0' && char <= '9' ? result + char : result;
+    }, '');
 }
 
-// Examples:
-console.log(posiString([1, -4, 4])); // "14"
-console.log(posiString([-1, -5, -3])); // ""
-console.log(posiString([2, 5, 7, -8])); // "257"
+// Misol
+const extractedDigits = extractDigits("Senior95MIT14Group");
+console.log(extractedDigits);  // Bu yerda "141" ni qaytarishi kerak

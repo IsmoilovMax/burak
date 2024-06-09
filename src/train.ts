@@ -20,4 +20,4 @@
 
 // // Misol
 // const extractedDigits = extractDigits("Senior95MIT14Group");
-// console.log(extractedDigits);  // Bu yerda "141" ni qaytarishi kerak
+// console.log(extractedDigits);  // Bu yerda "9514" ni qaytarishi kerak

@@ -1,6 +1,6 @@
 import mongoose, {Schema} from "mongoose";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
-import MemberService from "../models/Member.service";
+
 
 //Schema based
 const memberSchema = new Schema ({
@@ -18,7 +18,7 @@ const memberSchema = new Schema ({
 
     memberNick: {
         type: String,
-        index: {unique: true, sparse: true},
+        index: { unique: true, sparse: true},
         required: true,
     },
 
@@ -51,7 +51,7 @@ const memberSchema = new Schema ({
         default: 0
     }
 }, 
-    { timestamps: true }
+    { timestamps: true }//updatedAt //createdAt
 );
 
 export default mongoose.model('Member', memberSchema)

@@ -1,4 +1,3 @@
-import { ObjectId } from "mongoose";
 import { MemberStatus, MemberType } from "../enums/member.enum";
 import { Types } from "mongoose";
 

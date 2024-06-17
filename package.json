@@ -4,9 +4,9 @@
   "description": "This is burak project backend",
   "main": "src/server.ts",
   "scripts": {
-    "start": "ts-node src/server.ts",
-    "start:dev": "nodemon --exec ts-node src/server.ts",
-    "train": "nodemon --exec ts-node src/train.ts",
+    "start": "ts-node src/views/server.ts",
+    "start:dev": "nodemon --exec ts-node src/views/server.ts",
+    "train": "nodemon --exec ts-node src/views/train.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

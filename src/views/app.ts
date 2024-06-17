@@ -3,7 +3,7 @@ import path from "path"
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
-import { MORGAN_FORMAT } from "./libs/types/config";
+import { MORGAN_FORMAT } from "../libs/types/config";
 
 /* <1-ENTRANCE> */
 // Инициализация приложения Express
@@ -42,7 +42,7 @@ app.set('view engine', 'ejs')
 
 /* <4-ROUTERS> */
 
-app.use('/admin', routerAdmin);//BSSR( BECKEND SERVER SITE RENDERING):EJS
+app.use('/admin', routerAdmin);//BSSR( Back-end site server rendering.):EJS
 app.use('/', router);  //SPA(Single Page Application):REACT 
 
 // Middleware Design Pattern (faqat shu yerda integrasiya bolyabdi)

@@ -3,7 +3,7 @@ import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import { Member } from "../libs/types/member";
+
 
 
 const memberService = new MemberService(); 
@@ -12,7 +12,9 @@ const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
    try {
-        res.send("Home page");
+        console.log("goHome");
+        res.render("home");
+       
         //send Этот метод отправляет текстовое или HTML содержимое в ответ на запрос. 
         //json  Этот метод отправляет JSON объект в ответ на запрос. 
         //redirect Этот метод перенаправляет клиента на указанный URL. 
@@ -26,7 +28,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");     
-        res.send("Signup page");
+        res.render("signup");
     } catch (err) {
         console.log("Error, getSignup:", err);
     }
@@ -35,7 +37,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log("getLogin");    
-        res.send("Login page");
+        res.render("login");
     } catch (err) {
          console.log("Error, getLogin:", err);
     }

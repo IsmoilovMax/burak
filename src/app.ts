@@ -3,7 +3,7 @@ import path from "path"
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
-import { MORGAN_FORMAT } from "../libs/types/config";
+import { MORGAN_FORMAT } from "./libs/types/config";
 
 /* <1-ENTRANCE> */
 // Инициализация приложения Express
@@ -29,20 +29,12 @@ app.use(morgan(MORGAN_FORMAT));
 
 /* <3-VIEWS> */
 
-// Установка каталога для шаблонов представлений
-//app.set: Метод для настройки параметров в приложении Express.
-//views: Параметр, указывающий директорию для хранения файлов шаблонов.
-//path.join(__dirname, 'views'): Создает абсолютный путь к директории views, находящейся в той же директории, что и текущий файл.
-app.set('views', path.join(__dirname, 'views'))
-
-// Установка шаблонизатора EJS
-//'view engine': Параметр, указывающий на движок шаблонов, который будет использоваться для рендеринга представлений.
-//'ejs': Значение параметра view engine, указывающее на использование EJS (Embedded JavaScript) в качестве движка шаблонов.
-app.set('view engine', 'ejs')
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 /* <4-ROUTERS> */
 
-app.use('/admin', routerAdmin);//BSSR( Back-end site server rendering.):EJS
+app.use('/admin', routerAdmin); //BSSR( Back-end site server rendering.):EJS
 app.use('/', router);  //SPA(Single Page Application):REACT 
 
 // Middleware Design Pattern (faqat shu yerda integrasiya bolyabdi)

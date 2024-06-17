@@ -36,7 +36,7 @@
 // // Пример использования:
 // console.log(findArrayElement([1, 2, 3, 4, 5, 4, 3, 4])); // Выведет 4
 // console.log(findArrayElement([1, 2, 3, 4, 5, 4, 5, 5])); // Выведет 5
-console.log(findArrayElement([1, 2, 3, 4, 5, 4, 3, 3])); // Выведет 3
+//console.log(findArrayElement([1, 2, 3, 4, 5, 4, 3, 3])); // Выведет 3
   
 /* project Standarts:
     -Logging standarts

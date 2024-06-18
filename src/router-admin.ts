@@ -6,13 +6,16 @@ import restaurantController from "./controllers/restaurant.controller";
 routerAdmin.get('/', restaurantController.goHome) // Adminka home page ga yonaltiradi
 
 routerAdmin
-    .get('/Login', restaurantController.getLogin) 
-    .post('/Login', restaurantController.processLogin);
+    .get('/login', restaurantController.getLogin) 
+    .post('/login', restaurantController.processLogin);
 
 routerAdmin
     .get('/signup', restaurantController.getSignup)
     .post('/signup', restaurantController.processSignup);
 
+routerAdmin
+    .get('/check-me', restaurantController.checkAuthSession) 
+    
 /**Product */
 
 /**User */

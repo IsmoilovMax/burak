@@ -20,6 +20,8 @@ export enum Message {
     USER_EXIST = "User already exist, please sign in instead",
     NO_MEMBER_NICK = "No member with that member nick!",
     WRONG_PASSWORD = "Wrong password, please try again!",
+    NOT_AUTHENTICATED = "You are not authenticated, Please login first! "
+
 }
 
 class Errors extends Error {

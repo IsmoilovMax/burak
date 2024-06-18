@@ -5,14 +5,19 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/types/config";
 
+import session from "express-session";
+import ConnectMongoDB from "connect-mongodb-session";
+
+const MongoDBStore = ConnectMongoDB(session);
+const store = new MongoDBStore({
+    uri: String(process.env.MONGO_URL),
+    collection: "sessions",
+});
+
 /* <1-ENTRANCE> */
 // Инициализация приложения Express
 
 const app = express();
-
-// Обслуживание статических файлов из папки 'public'
-//Например, если у нас есть файл public/index.html, 
-//он будет доступен по URL-адресу http://localhost:3003/index.html.
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Разбор URL-кодированных данных (extended: true для поддержки сложных объектов)
@@ -20,11 +25,21 @@ app.use(express.urlencoded({ extended: true }))
 
 // Разбор входящих JSON-запросов
 app.use(express.json());
-// Используем morgan для логирования HTTP-запросов с заданным форматом
 app.use(morgan(MORGAN_FORMAT));
 
 /* <2-SESSIONS> */
+app.use(
+    session({
+        secret: String(process.env.SESSION_SECRET), 
+        cookie: { 
+            maxAge: 60000, 
+        },
+        store: store,
+        resave:true,
+        saveUninitialized:true
 
+    })
+);
 
 
 /* <3-VIEWS> */

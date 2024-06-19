@@ -6,7 +6,7 @@ import app from "./app";
 
 
 // Подключение к MongoDB с использованием переменной среды MONGO_URL
-mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', true);
 mongoose
     .connect(process.env.MONGO_URL as string, {})
     .then((data) => {

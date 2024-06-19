@@ -1,7 +1,8 @@
-import express, {Request, Response}  from "express";
+import {Request, Response}  from "express";
 import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
+import { MemberType } from "../libs/enums/member.enum";
 import Errors from "../libs/types/Errors";
 
 const memberService = new MemberService();
@@ -16,12 +17,13 @@ memberController.signup = async (req: Request, res: Response) => {
             result: Member = await memberService.signup(input);
         //TODO:TOKENS  AUTHENTICATION
 
-        res.json({member: result}); 
+         res.json({member: result}); 
 
     } catch (err) {
         console.log("Error, signup:", err);
-        if(err instanceof Errors) res. status(err.code).json();
-        else res.status(Errors.standart.code).json(Errors.standart);
+        if(err instanceof Errors) res.status(err.code).json();
+        else res.status(Errors.standard.code).json(Errors.standard);
+        
         
     }
     
@@ -34,12 +36,12 @@ memberController.login = async (req: Request, res: Response) => {
             result = await memberService.login(input);
         //TODO:TOKENS AUTHENTICATION
 
-        res.json({member: result}); 
+        return res.json({member: result}); 
         
     } catch (err) {
         console.log("Error, login:", err);
-        if(err instanceof Errors) res. status(err.code).json();
-        else res.status(Errors.standart.code).json(Errors.standart);
+        if(err instanceof Errors) res.status(err.code).json();
+        else res.status(Errors.standard.code).json(Errors.standard);
         
     }
 };

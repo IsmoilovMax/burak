@@ -56,7 +56,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
         const result = await memberService.processSignup(newMember);
        
 
-        req.session.member = result;
+        req.session.member = result; // cookie ni ichiga sid? ni joylab keladi va memberdata (result) di saqlab  keladi
         req.session.save(function () {
             res.send(result);
         });

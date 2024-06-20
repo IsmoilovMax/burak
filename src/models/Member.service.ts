@@ -26,9 +26,9 @@ public async signup(input: MemberInput): Promise<Member> {
 		return result.toJSON() as Member;
 	} catch (err) {
 		console.log("Error, model:signup", err)
-		throw Error
+		//throw new Errors(HttpCode.BAD_REQUEST , Message.NO_DATA_FOUND)
 		
-		//throw new Errors(HttpCode.BAD_REQUEST, Message.NICK_NOT_FOUND)
+		throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK)
 			
 	}
 }
@@ -43,8 +43,7 @@ public async signup(input: MemberInput): Promise<Member> {
 		).exec();
 
 	if (!member) {
-		throw Error
-		//throw new Errors(HttpCode.NOT_FOUND, Message.CREATE_FAILED)
+		throw new Errors(HttpCode.NOT_FOUND, Message.NICK_NOT_FOUND)
 	}
 
 	const isMatch = await bcrypt.compare(
@@ -52,7 +51,7 @@ public async signup(input: MemberInput): Promise<Member> {
 		member.memberPassword
 	)
 	if (!isMatch) 
-		throw  Error
+		throw new Errors(HttpCode.UNAUTHORISED, Message.NOT_AUTHENTICATED)
 
 		return (await this.memberModel.findById(member._id).lean().exec()) as Member
 
@@ -105,7 +104,7 @@ public async signup(input: MemberInput): Promise<Member> {
       
 
     if (!isMatch) {
-        throw new Errors(HttpCode.UNAUTHORISED, Message.NOT_AUTHENTICATED);
+        throw new Errors(HttpCode.UNAUTHORISED, Message.WRONG_PASSWORD);
     } 
           
 

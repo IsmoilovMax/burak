@@ -4,7 +4,7 @@
 // MASALAN: countVowels("string") return 1;
 
 function calculateVowels(text: string): number {
-    const vowelArray: string[] = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    const vowelArray: string[] = ['a', 'e', 'i', 'o', 'u', "o' ", 'A', 'E', 'I', 'O', 'U', "O' "];
     
     return text.split('').filter(char => vowelArray.includes(char)).length;
 }

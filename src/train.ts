@@ -27,22 +27,29 @@ console.log(calculateVowels("JavaScript")); // Output: 3
     -Error handling   
 
 */
-/*
+/*  REQUEST:
     - Eng kop ishlatiladigan Api-
     Traditinal Api Burak
     Rest Api    Burak
     GraphQL Api 
 */    
 
-/* Traditional "Frontend development"(HTML (HyperText Markup Language):) =>
+
+/* 
+Traditional "Frontend development"(HTML (HyperText Markup Language):) =>
      BSSR ("Adminka"="Back-end site server rendering.") =>
         EJS(EJS is a simple yet powerful templating language for generating HTML markup with JavaScript)
 
     Modern "Frontend development" => 
         SPA("USer"="SPA stands for Single Page Application") =>
         REACT
+
+
 */        
 
 /*
- * re
+ * Validation 
+    frontend validation
+    backend validation
+    database validation
  */

@@ -47,10 +47,10 @@ const productSchema = new Schema (
 
     productDesc: {
         type: String,
-        required: true
+        
     },
 
-    productImage: {
+    productImages: {
         type: [String],
         default: []
     },

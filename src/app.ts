@@ -40,7 +40,7 @@ app.use(
         resave:true, // har kerganda session vaqti yangilanadi
         saveUninitialized:true
 
-    })
+    }) 
 );
 
 app.use(function (req, res, next) {

@@ -9,12 +9,11 @@ routerAdmin.get('/', restaurantController.goHome) // Adminka home page ga yonalt
 
 routerAdmin
     .get('/login', restaurantController.getLogin) 
-    .post('/login', restaurantController.processLogin);
-
+    .post('/login', restaurantController.processLogin)
+    
 routerAdmin
     .get('/signup', restaurantController.getSignup)
-    .post('/signup', 
-    makeUploader("members").single('memberImage'), 
+    .post('/signup', makeUploader("members").single('memberImage'),  //single(fieldName: string): RequestHandler;
     restaurantController.processSignup);
 
 routerAdmin
@@ -38,6 +37,10 @@ routerAdmin
         productController.updateChosenProduct);
 
 
-/**User */
+/**User  */
+
+routerAdmin.get("/user/all", restaurantController.verifyRestaurant, restaurantController.getUsers)
+
+
 
 export default routerAdmin;

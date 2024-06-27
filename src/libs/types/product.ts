@@ -4,14 +4,14 @@ import { ProductCollection, ProductSize, ProductStatus } from "../enums/product.
 
 export interface Product {
     _id: Types.ObjectId;
-    productStatus: ProductStatus;
+    productStatus: ProductStatus | string;
     productCollection: ProductCollection;
     productName: string;
     productPrice:number;
     productLeftCount: number;
     productSize: ProductSize;
     productVolume?: number;
-    productDesc?:string;
+    productDesc?:string | undefined;
     productImages: string[];
     productViews: number;
     

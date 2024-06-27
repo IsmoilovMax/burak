@@ -21,32 +21,34 @@ const store = new MongoDBStore({
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Разбор URL-кодированных данных (extended: true для поддержки сложных объектов)
+//(form data) o'qish va qayta ishlash uchun ishlatiladigan middleware funksiyasi
 app.use(express.urlencoded({ extended: true }))
 
-// Разбор входящих JSON-запросов
+// JSON formatidagi so'rov tanalarini o'qiydi va ularni JavaScript ob'ektlariga aylantiradi.
+//So'rov tanasidagi ma'lumotlarni req.body ichida saqlaydi.
 app.use(express.json());
-app.use(morgan(MORGAN_FORMAT));
+
+app.use(morgan(MORGAN_FORMAT)); //HTTP so'rovlari haqidagi ma'lumotlarni log faylga yoki konsolga yozib boradi.
 
 /* <2-SESSIONS> */
-//session (option), secret # ve?
+
 app.use(
     session({
-        secret: String(process.env.SESSION_SECRET), 
+        secret: String(process.env.SESSION_SECRET), //sessiya uchun maxfiy kalitni belgilaydi. 
         cookie: { 
-            maxAge: 1000 * 60 * 24 * 7 //1 week 
+            maxAge: 36000 //1 soat //cookie`ning amal qilish muddatini sekundlarda belgilaydi
         },
-        store: store,
+        store: store,  //sessiyalarni qayerda saqlanishini belgilaydi
         resave:true, // har kerganda session vaqti yangilanadi
-        saveUninitialized:true
-
+        saveUninitialized:true //true bo'lsa, hech qanday ma'lumot bo'lmasa ham, sessiyalar saqlanadi.
+ 
     }) 
 );
 
 app.use(function (req, res, next) {
     const sessionInstance = req.session as T ;
-    res.locals.member = sessionInstance.member;
-    next();
+    res.locals.member = sessionInstance.member;  //Bu qator sessiyadagi member xususiyatini oladi va uni res.locals.member ga belgilaydi. Bu member ma'lumotini view (shablon)lar orqali foydalanishga imkon beradi.
+    next(); //Bu metod keyingi middleware yoki so'rovni qayta ishlovchi funksiyaga o'tishni ta'minlaydi. 
 });
 
 /* <3-VIEWS> */

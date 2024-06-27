@@ -1,4 +1,4 @@
-import express, {NextFunction, Request, Response}  from "express";
+import {NextFunction, Request, Response}  from "express";
 import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
@@ -56,14 +56,14 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
        
 
         const newMember: MemberInput = req.body; 
-        newMember.memberImage = file?.path.replace(/\\/g, "/"); 
+        newMember.memberImage = file?.path.replace(/\\/g, "/"); //katalog yo'lini \ belgilarini / belgilariga almashtiradi. 
         newMember.memberType = MemberType.RESTAURANT;
         const result = await memberService.processSignup(newMember);
        
 
         req.session.member = result; // cookie ni ichiga sid? ni joylab keladi va memberdata (result) di saqlab  keladi
         req.session.save(function () {
-            res.redirect("/admin/product/all");
+            res.redirect("/admin/product/all"); //sessiya o'zgarishlarini saqlash va keyingi sahifaga yo'naltirishni bajaradi.
         });
 
     } catch (err) {
@@ -85,6 +85,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
         const result = await memberService.processLogin(input);
         
         req.session.member = result;
+        // sessiyani saqlash va keyingi sahifaga yo'naltirishni bajaradi.
         req.session.save(function () {
             res.redirect("/admin/product/all");
         });
@@ -109,6 +110,31 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
         
     } catch (err) {
         console.log("Error, logout:", err);
+            res.redirect("/admin");
+    }
+
+};
+
+restaurantController.getUsers = async (req: Request, res: Response) => {
+    try {
+        console.log("getUsers");
+        const result = await memberService.getUsers();
+        console.log("result:", result)
+        res.render("users", { users: result });
+            
+    } catch (err) {
+        console.log("Error, getUsers:", err);
+            res.redirect("/admin/login");
+    }
+
+};
+
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
+    try {
+        console.log("updateChosenUser");
+            
+    } catch (err) {
+        console.log("Error, updateChosenUser:", err);
             res.redirect("/admin");
     }
 

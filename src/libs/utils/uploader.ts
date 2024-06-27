@@ -5,11 +5,11 @@ import { v4 } from "uuid";
 /**MULTER IMAGE UPLOADER */
 function getTargetImageStorage(address: any) {
     return multer.diskStorage({
-        destination: function (req, file, cb) {
+        destination: function (req, file, cb) {  //fayllarni saqlash joyini belgilovchi 
             cb(null, `./uploads/${address}`);
         },
         filename: function (req, file, cb) {
-            const extension = path.parse(file.originalname).ext;
+            const extension = path.parse(file.originalname).ext; //faylning nomi, kengaytmasi,
             const random_name = v4() + extension;
             cb(null, random_name);
         },
@@ -18,7 +18,7 @@ function getTargetImageStorage(address: any) {
 
 const makeUploader = (address: string) => {
     const storage = getTargetImageStorage(address);
-    return multer({ storage: storage});
+    return multer({ storage: storage}); //storage?: StorageEngine | undefined;
 };
 
 export default makeUploader;

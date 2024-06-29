@@ -1,17 +1,23 @@
-// N-TASK: 
+// O-TASK:
 
-// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
-// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
 
-
-function isPalindrome(str: string): boolean {
-    return [...str].every((ch, i) => ch === str[str.length - 1 - i]);
+function SumOfNumbers(numbers: any[]): number {
+    return numbers.reduce((sum, number) => sum + (typeof number === 'number' ? number : 0));
   }
-  
 
-console.log(isPalindrome("baby")); // false
-console.log(isPalindrome("oppo")); // true
+const numbers = [40, "10", { son: 10 }, true, 25];
+const sum = SumOfNumbers(numbers);
+console.log(sum); // 65
+
+/*
+---Validations---
+frontend
+backend
+database
+*/
 
 /* project Standarts:
     -Logging standarts

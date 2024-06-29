@@ -31,8 +31,8 @@ database
 */
 /*  REQUEST:
     - Eng kop ishlatiladigan Api-
-    Traditinal Api Burak
-    Rest Api    Burak
+    Traditinal Api Burak HTML ozini elementlaru orqali amalga oshiriladugon request = form -> POst
+    Rest Api    Burak json almashinuvi
     GraphQL Api 
 */    
 

@@ -20,6 +20,7 @@ export enum HttpCode {
     
         USED_NICK = "You are inserting already used nick or phone!",
         USER_EXIST = "User already exist, please sign in instead",
+        BLOCKED_USER = "You have been blocked, contact restaurant!",
         NICK_NOT_FOUND = "No member with that member nick!",
         WRONG_PASSWORD = "Wrong password, please try again!",
         NOT_AUTHENTICATED = "You are not authenticated, Please login first! ",

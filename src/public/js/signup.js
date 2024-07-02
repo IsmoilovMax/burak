@@ -44,7 +44,7 @@ function validateSignupForm(){
         alert("Repeat Password field doesn't match your password")
         return false
     }
-    const memberImage = $(".member-image").get(0).files[0]
+    const memberImage = $(".member-image").get(0).files[0]?.name
     ? $(".member-image").get(0).files[0].name
     : null;
 

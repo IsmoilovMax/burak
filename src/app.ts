@@ -36,7 +36,7 @@ app.use(
     session({
         secret: String(process.env.SESSION_SECRET), //sessiya uchun maxfiy kalitni belgilaydi. 
         cookie: { 
-            maxAge: 36000 //1 soat //cookie`ning amal qilish muddatini sekundlarda belgilaydi
+            maxAge: 360000 //1 soat //cookie`ning amal qilish muddatini sekundlarda belgilaydi
         },
         store: store,  //sessiyalarni qayerda saqlanishini belgilaydi
         resave:true, // har kerganda session vaqti yangilanadi

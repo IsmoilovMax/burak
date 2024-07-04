@@ -1,19 +1,21 @@
-// P-TASK:
+// Q-TASK:
 
-// Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
-// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 
-function objectToArray(obj: Record<string, any>): { [key: string]: any }[] {
-    return Object.entries(obj).reduce((acc, [key, value]) => {
-      acc.push({ [key]: value });
-      return acc;
-    }, [] as { [key: string]: any }[]);
+function hasProperty(obj: object, propertyName: string): boolean {
+    for (const key in obj) {
+      if (key === propertyName) {
+        return true;
+      }
+    }
+    return false;
   }
-  
-  
-const myObject = { a: 20, b: 40 };
-const array = objectToArray(myObject);
-console.log(array); // Output: [{ a: 20 }, { b: 40 }]
+
+  const obj = { name: "BMW", model: "M3" };
+
+console.log(hasProperty(obj, "model")); // true
+console.log(hasProperty(obj, "year")); // false
 
 /*
 ---Validations---

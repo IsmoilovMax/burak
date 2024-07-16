@@ -1,14 +1,24 @@
-// U-TASK:
+// V-TASK:
 
-// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
-// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+// Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+function countChars(str: string): object {
+    const counts: any = {};
+    for (let i = 0; i < str.length; i++) {
+      const char = str[i].toLowerCase();
+      if (counts[char] === undefined) {
+        counts[char] = 1;
+      } else {
+        counts[char]++;
+      }
+    }
+    return counts;
+  }
 
 
-function countOdds(n: number): number {
-    return Math.floor(n / 2);
-}
-
-console.log(countOdds(11));
+const result = countChars("hello");
+console.log(result); // { h: 1, e: 1, l: 2, o: 1 }
 
 /*
 ---Validations---

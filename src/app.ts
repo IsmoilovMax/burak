@@ -4,6 +4,7 @@ import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/types/config";
+import cookieParser from "cookie-parser";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 // JSON formatidagi so'rov tanalarini o'qiydi va ularni JavaScript ob'ektlariga aylantiradi.
 //So'rov tanasidagi ma'lumotlarni req.body ichida saqlaydi.
 app.use(express.json());
-
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT)); //HTTP so'rovlari haqidagi ma'lumotlarni log faylga yoki konsolga yozib boradi.
 
 /* <2-SESSIONS> */

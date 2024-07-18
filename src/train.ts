@@ -1,25 +1,18 @@
-// V-TASK:
+// W-TASK:
 
-// Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
-// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+// Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+// MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 
-function countChars(str: string): object {
-    const counts: any = {};
-    for (let i = 0; i < str.length; i++) {
-      const char = str[i].toLowerCase();
-      if (counts[char] === undefined) {
-        counts[char] = 1;
-      } else {
-        counts[char]++;
-      }
-    }
-    return counts;
-  }
+function chunkArrayReduce<T>(array: T[], size: number): T[][] {
+  return array.reduce((acc: T[][], current: T, i: number) => {
+    if (i % size === 0) acc.push(array.slice(i, i + size));
+    return acc;
+  }, []);
+}
+// Big O: O(n)
 
-
-const result = countChars("hello");
-console.log(result); // { h: 1, e: 1, l: 2, o: 1 }
-
+chunkArrayReduce([1,2,3,4,5,6,7,8,9,10], 3)
+console.log(chunkArrayReduce([1,2,3,4,5,6,7,8,9,10], 3))
 /*
 ---Validations---
 frontend

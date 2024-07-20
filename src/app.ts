@@ -21,7 +21,7 @@ const store = new MongoDBStore({
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')))
-
+app.use("/uploads", express.static("./uploads"))
 //(form data) o'qish va qayta ishlash uchun ishlatiladigan middleware funksiyasi
 app.use(express.urlencoded({ extended: true }))
 

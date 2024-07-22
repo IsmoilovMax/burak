@@ -3,9 +3,9 @@ import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput, MemberUpdateInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import Errors, { HttpCode, Message } from "../libs/types/Errors";
+import Errors, { HttpCode, Message } from "../libs/utils/Errors";
 import AuthService from "../models/Auth.service";
-import {AUTH_TIMER} from "../libs/types/config"
+import {AUTH_TIMER} from "../libs/utils/config"
 import {ExtendedRequest} from "../libs/types/member"
 
 const memberService = new MemberService();

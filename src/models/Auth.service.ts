@@ -1,8 +1,8 @@
 import { Member } from "../libs/types/member";
 import  jwt  from "jsonwebtoken";
-import {AUTH_TIMER} from   "../libs/types/config"
-import Errors, { Message } from "../libs/types/Errors";
-import { HttpCode } from "../libs/types/Errors";
+import {AUTH_TIMER} from   "../libs/utils/config"
+import Errors, { Message } from "../libs/utils/Errors";
+import { HttpCode } from "../libs/utils/Errors";
 
 class AuthService {
     private readonly secretToken;

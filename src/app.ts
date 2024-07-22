@@ -3,7 +3,7 @@ import path from "path"
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
-import { MORGAN_FORMAT } from "./libs/types/config";
+import { MORGAN_FORMAT } from "./libs/utils/config";
 import cookieParser from "cookie-parser";
 
 import session from "express-session";

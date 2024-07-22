@@ -1,5 +1,6 @@
 import { Types } from "mongoose";
 import { ProductCollection, ProductSize, ProductStatus } from "../enums/product.enum";
+import { exitCode } from "process";
 
 
 export interface Product {
@@ -17,6 +18,14 @@ export interface Product {
     
 }
 
+export interface ProductInQuery {
+    order: string;
+    page: number;
+    limit: number;
+    productCollection?: ProductCollection;
+    search?: string;
+
+}
 
 export interface ProductInput {
     productStatus?: ProductStatus;

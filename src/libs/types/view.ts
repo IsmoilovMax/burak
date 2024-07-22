@@ -12,7 +12,7 @@ export interface View {
 }
 
 export interface ViewInput {
-    viewGroup: ViewGroup;
-    memberId: ObjectId;
-    viewRefId: ObjectId;
+  memberId: ObjectId;
+  viewRefId: ObjectId;
+  viewGroup: ViewGroup;
 }

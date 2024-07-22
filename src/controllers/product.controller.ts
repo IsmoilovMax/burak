@@ -5,7 +5,7 @@ import ProductService from "../models/Product.service";
 import { ProductInput, ProductInQuery } from "../libs/types/product";
 import { AdminRequest, ExtendedRequest } from "../libs/types/member";
 import { ProductCollection } from "../libs/enums/product.enum";
-import { ObjectId, Schema } from "mongoose";
+
 
 
 
@@ -42,21 +42,21 @@ productController.getProducts = async (req: Request, res: Response) => {
     } 
 }
 
-productController.getProduct = async (req: ExtendedRequest, res: Response) => {
+productController.getProduct = async (req: ExtendedRequest | any, res: Response) => {
     try {
-        console.log("getProduct");
-        const { id}  = req.params;
-        const memberId: any = req.member?._id ?? null;
-        const result = await productService.getProduct(memberId, id);
-       
-         res.status(HttpCode.OK).json(result);
+      console.log("getProduct");
+      const { id } = req.params;
+  
+      const memberId = req.member?._id ?? null;
+      const result = await productService.getProduct(memberId, id);
+  
+      res.status(HttpCode.OK).json(result);
     } catch (err) {
-        console.log("Error, getProduct:", err);
-        if(err instanceof Errors) res.status(err.code).json(err);
-        else res.status(Errors.standard.code).json(Errors.standard);
-          
-    }  
-}
+      console.log("Error, getProduct:", err);
+      if (err instanceof Errors) res.status(err.code).json(err);
+      else res.status(Errors.standard.code).json(Errors.standard);
+    }
+  };
 
 /**SSR */
 

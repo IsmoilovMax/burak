@@ -7,6 +7,7 @@ import Errors, { Message } from "../libs/utils/Errors";
 import { HttpCode } from "../libs/utils/Errors";
 import { ObjectId } from "mongoose";
 import MemberService from "./Member.service";
+import { OrderStatus } from "../libs/enums/order.enum";
 
 
 class OrderService {
@@ -17,7 +18,7 @@ class OrderService {
     constructor() {
         this.orderModel = OrderModel;
         this.orderItemModel = OrderItemModel;
-        this.memberService = new MemberService;
+        this.memberService = new MemberService();
     }
 
     public async createOrder(member: Member, input: OrderItemInput[])
@@ -116,6 +117,10 @@ class OrderService {
 
             if(!result)
                 throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+
+            if(orderStatus === OrderStatus.PROCESS) {
+                await this.memberService.addUserPoint(member, 1);
+            }
 
             return result;
 

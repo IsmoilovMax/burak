@@ -1,13 +1,16 @@
-// Z-TASK:
+// ZB-TASK:
 
-// Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. Function arraydagi juft sonlarni yigindisini qaytarsin
-// MASALAN: sumEvens([1,2,3]) return 2
+// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+// MASALAN: randomBetween(30, 50) return 45
 
-function sumEvens(arr: number[]): number {
-    return arr.reduce((acc, num) => num % 2 === 0 ? acc + num : acc, 0);
+function random(min: number, max: number): number {
+    while (true) {
+        const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (rand >= min && rand <= max) return rand;
+    }
 }
 
-console.log(sumEvens([1,2,3]))
+console.log(random(50, 100));
 
 /*
 ---Validations---

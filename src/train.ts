@@ -1,16 +1,17 @@
-// ZB-TASK:
+// ZC-TASK:
 
-// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
-// MASALAN: randomBetween(30, 50) return 45
+// Shunday function yozing, uni number parametri bolsin va function qabul parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
+// MASALAN: celsiusToFahrenheit(0) return 32
 
-function random(min: number, max: number): number {
-    while (true) {
-        const rand = Math.floor(Math.random() * (max - min + 1)) + min;
-        if (rand >= min && rand <= max) return rand;
-    }
-}
 
-console.log(random(50, 100));
+// F = (C * 9/5) + 32
+
+export function celsiusToFahrenheit(celsius: number): number {
+    return (celsius * 9/5) + 32;
+  }
+
+  console.log("celsiusToFahrenheit:", celsiusToFahrenheit);
+  console.log("celsiusToFahrenheit:", celsiusToFahrenheit(32));
 
 /*
 ---Validations---

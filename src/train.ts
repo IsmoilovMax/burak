@@ -1,17 +1,16 @@
-// ZC-TASK:
+// ZD-TASK:
 
-// Shunday function yozing, uni number parametri bolsin va function qabul parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
-// MASALAN: celsiusToFahrenheit(0) return 32
+// Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
 
+function changeNumberInArray(number: number, array: number[], newNumber: number): number[] {
+    let found = false;
+    return array.map(element => !found && element === number ? (found = true, newNumber) : element);
+}
 
-// F = (C * 9/5) + 32
+// Test
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); 
 
-export function celsiusToFahrenheit(celsius: number): number {
-    return (celsius * 9/5) + 32;
-  }
-
-  console.log("celsiusToFahrenheit:", celsiusToFahrenheit);
-  console.log("celsiusToFahrenheit:", celsiusToFahrenheit(32));
 
 /*
 ---Validations---

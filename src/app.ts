@@ -1,3 +1,4 @@
+import cors from "cors"
 import express from "express";
 import path from "path"
 import router from "./router";
@@ -24,7 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use("/uploads", express.static("./uploads"))
 //(form data) o'qish va qayta ishlash uchun ishlatiladigan middleware funksiyasi
 app.use(express.urlencoded({ extended: true }))
-
+app.use(cors({
+    credentials: true, 
+    origin: true
+}))
 // JSON formatidagi so'rov tanalarini o'qiydi va ularni JavaScript ob'ektlariga aylantiradi.
 //So'rov tanasidagi ma'lumotlarni req.body ichida saqlaydi.
 app.use(express.json());

@@ -1,15 +1,19 @@
-// ZD-TASK:
+// ZE-TASK:
 
-// Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
-// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+// Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+// MASALAN: removeDuplicate('stringg') return 'string'
 
-function changeNumberInArray(number: number, array: number[], newNumber: number): number[] {
-    let found = false;
-    return array.map(element => !found && element === number ? (found = true, newNumber) : element);
+function removeDuplicate(str: string): string {
+    return str.split('').reduce((acc, char) => {
+        if (!acc.includes(char)) {
+            acc += char;
+        }
+        return acc;
+    }, '');
+    
 }
 
-// Test
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); 
+console.log(removeDuplicate('kaaccooss'))
 
 
 /*

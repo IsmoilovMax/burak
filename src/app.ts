@@ -52,7 +52,8 @@ app.use(
 
 app.use(function (req, res, next) {
     const sessionInstance = req.session as T ;
-    res.locals.member = sessionInstance.member;  //Bu qator sessiyadagi member xususiyatini oladi va uni res.locals.member ga belgilaydi. Bu member ma'lumotini view (shablon)lar orqali foydalanishga imkon beradi.
+    const localsInstance = res.locals;
+    localsInstance.member = sessionInstance.member;  //Bu qator sessiyadagi member xususiyatini oladi va uni res.locals.member ga belgilaydi. Bu member ma'lumotini view (shablon)lar orqali foydalanishga imkon beradi.
     next(); //Bu metod keyingi middleware yoki so'rovni qayta ishlovchi funksiyaga o'tishni ta'minlaydi. 
 });
 

@@ -1,22 +1,17 @@
-// ZH-TASK:
+// ZI-TASK:
 
-// Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
-// MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+// Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World" ni qaytarsin.
+// MASALAN: delayHelloWorld("Hello World") return "Hello World"
 
-function findDisappearedNumbers(arr: number[]): number[] {
-    const max = Math.max(...arr);
-    const result: number[] = [];
-    let i = 1;
-    while (i <= max) {
-        if (!arr.includes(i)) {
-            result.push(i);
-        }
-        i++;
-    }
-    return result;
+function delay(message: string): void {
+    setTimeout(() => {
+        console.log(message);
+    }, 3000);
 }
 
-console.log(findDisappearedNumbers([1, 7, 8, 9]))
+delay("project Standarts");
+
+
 
 /*
 ---Validations---
